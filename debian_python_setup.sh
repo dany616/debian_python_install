@@ -44,8 +44,8 @@ pyenv global 3.12.0
 pyenv rehash
 
 # 6. 확인용 출력 (자동 채점용 로그 유도)
-# echo "pyenv version:"
-# pyenv -v
+echo "pyenv version:"
+pyenv -v
 
-# echo "Python version:"
-# python --version
+echo "Python version:"
+python --version
