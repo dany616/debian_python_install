@@ -43,6 +43,10 @@ pyenv install 3.12.0
 pyenv global 3.12.0
 pyenv rehash
 
+# python 명령을 무조건 보장
+ln -sf "$HOME/.pyenv/versions/3.12.0/bin/python3" /usr/local/bin/python
+ln -sf "$HOME/.pyenv/versions/3.12.0/bin/python3" /usr/local/bin/python3
+
 # 6. 확인용 출력 (자동 채점용 로그 유도)
 echo "pyenv version:"
 pyenv -v
