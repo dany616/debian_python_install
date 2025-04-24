@@ -39,8 +39,8 @@ eval "$(pyenv init -)"
 # 4. Python 3.12.0 설치
 pyenv install 3.12.0
 
-# 5. Python 3.12.0을 로컬 버전으로 설정
-pyenv local 3.12.0
+# 5. Python 3.12.0을 기본 버전으로 설정
+pyenv global 3.12.0
 pyenv rehash
 
 # 6. 확인용 출력 (자동 채점용 로그 유도)

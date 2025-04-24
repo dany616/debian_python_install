@@ -8,7 +8,7 @@
 - pyenv 설치
 - 쉘 환경 설정 자동화 (비로그인 쉘 지원)
 - Python 3.12.0 설치
-- 로컬 Python 버전 설정
+- 기본 Python 버전 설정 (global)
 
 ## 사용 방법
 
