@@ -18,27 +18,34 @@ export_profile_line='export PYENV_ROOT="$HOME/.pyenv"'
 path_profile_line='export PATH="$PYENV_ROOT/bin:$PATH"'
 init_profile_line='eval "$(pyenv init --path)"\neval "$(pyenv init -)"'
 
-if ! grep -q "$export_profile_line" ~/.bashrc; then
-    echo "$export_profile_line" >> ~/.bashrc
-    echo "$path_profile_line" >> ~/.bashrc
-    echo -e "$init_profile_line" >> ~/.bashrc
-fi
+# .bashrc 및 .profile 모두에 설정 추가 (비로그인 쉘 지원)
+for profile in ~/.bashrc ~/.profile; do
+    if [ -f "$profile" ]; then
+        if ! grep -q "$export_profile_line" "$profile"; then
+            echo "$export_profile_line" >> "$profile"
+            echo "$path_profile_line" >> "$profile"
+            echo -e "$init_profile_line" >> "$profile"
+        fi
+    fi
+done
 
 # 현재 셸에서도 적용
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # 4. Python 3.12.0 설치
-pyenv install 3.12
+pyenv install 3.12.0
 
 # 5. Python 3.12.0을 로컬 버전으로 설정
-pyenv local 3.12
+pyenv local 3.12.0
+pyenv rehash
 
 # 6. 확인용 출력 (자동 채점용 로그 유도)
 # echo "pyenv version:"
-#pyenv -v
+# pyenv -v
 
 # echo "Python version:"
 # python --version
